@@ -157,12 +157,12 @@ export function Nav() {
                 <div className="absolute -bottom-20 right-0 h-56 w-56 rounded-full bg-white/10" />
                 <div className="relative flex h-full min-h-[500px] flex-col justify-between">
                   <div>
-                    <div className="eyebrow text-white/80">Private Minibus</div>
+                    <div className="eyebrow text-white/80">Georgia Travel</div>
                     <h2 className="mt-5 font-display text-5xl leading-tight">
-                      Plan Your Georgia Trip
+                      Plan Your Dream Journey
                     </h2>
                     <p className="mt-5 text-sm leading-7 text-white/80">
-                      Share your route, date, and group size. Your booking request will open directly in WhatsApp.
+                      Tell us where you want to go, when you want to travel, and what kind of experience you love. We will help shape a smooth Georgia travel plan for you.
                     </p>
                   </div>
                   <div className="space-y-4 text-sm text-white/85">
@@ -175,9 +175,9 @@ export function Nav() {
               <form onSubmit={submitBooking} className="max-h-[88vh] overflow-y-auto p-6 md:max-h-none md:overflow-visible md:p-7">
                 <div className="pr-10 md:pr-0">
                   <div className="eyebrow text-gold">Booking Request</div>
-                  <h3 className="mt-3 font-display text-3xl leading-tight text-foreground">Reserve Your Vehicle</h3>
+                  <h3 className="mt-3 font-display text-3xl leading-tight text-foreground">Request Your Travel Plan</h3>
                   <p className="mt-3 text-sm leading-6 text-foreground/65">
-                    Fill details and submit. WhatsApp will open with your booking message ready to send.
+                    Share your trip details and submit. WhatsApp will open with your travel request ready to send.
                   </p>
                 </div>
 
