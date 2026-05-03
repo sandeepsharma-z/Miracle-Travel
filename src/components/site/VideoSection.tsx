@@ -20,11 +20,11 @@ export function VideoSection() {
 
       <div className="relative z-10 h-full flex items-end justify-center pb-12 md:pb-16">
         <div className="flex flex-wrap gap-2 md:gap-4 justify-center">
-          <a href="#book" className="box-fill-button is-fill-out inline-flex w-36 md:w-52 items-center justify-center gap-2 px-4 md:px-8 py-2 md:py-4 text-xs uppercase tracking-[0.2em] md:tracking-[0.28em] font-semibold">
+          <a href="#book" className="box-fill-button is-fill-out inline-flex w-44 md:w-52 items-center justify-center gap-2 px-4 md:px-8 py-2 md:py-4 text-xs uppercase tracking-[0.16em] md:tracking-[0.28em] font-semibold">
             <span>Plan Trip</span>
             <ArrowRight className="button-icon" size={15} strokeWidth={1.8} />
           </a>
-          <a href="#tours" className="box-fill-button is-light inline-flex w-36 md:w-52 items-center justify-center gap-2 px-4 md:px-8 py-2 md:py-4 text-xs uppercase tracking-[0.2em] md:tracking-[0.28em]">
+          <a href="#tours" className="box-fill-button is-light inline-flex w-44 md:w-52 items-center justify-center gap-2 px-4 md:px-8 py-2 md:py-4 text-xs uppercase tracking-[0.16em] md:tracking-[0.28em]">
             <span>Learn More</span>
             <ArrowRight className="button-icon" size={15} strokeWidth={1.8} />
           </a>
