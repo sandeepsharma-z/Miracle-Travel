@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { HeroSlider } from "@/components/site/HeroSlider";
+import { VideoSection } from "@/components/site/VideoSection";
 import { Intro } from "@/components/site/Intro";
+import { DestinationsMarquee } from "@/components/site/DestinationsMarquee";
+import { FeaturesSection } from "@/components/site/FeaturesSection";
 import { Parallax } from "@/components/site/Parallax";
 import { Tours } from "@/components/site/Tours";
 import { Vehicles } from "@/components/site/Vehicles";
-import { Gallery } from "@/components/site/Gallery";
-import { WhyUs } from "@/components/site/WhyUs";
 import { Timeline } from "@/components/site/Timeline";
 import { Destinations } from "@/components/site/Destinations";
 import { Trust } from "@/components/site/Trust";
@@ -29,13 +30,13 @@ function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Nav />
-      <HeroSlider />
+      <VideoSection />
       <Intro />
+      <DestinationsMarquee />
+      <FeaturesSection />
       <Parallax />
       <Tours />
       <Vehicles />
-      <Gallery />
-      <WhyUs />
       <Timeline />
       <Destinations />
       <Trust />

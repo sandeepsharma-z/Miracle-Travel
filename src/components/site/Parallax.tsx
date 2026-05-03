@@ -1,38 +1,39 @@
-import { useEffect, useRef, useState } from "react";
-import road from "@/assets/road-aerial.jpg";
+import georgiaVideo from "@/assets/parallax-video.mp4";
+
+const siteName = "მიკროავტობუსი დაკვეთით";
 
 export function Parallax() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [y, setY] = useState(0);
-  useEffect(() => {
-    const onScroll = () => {
-      if (!ref.current) return;
-      const rect = ref.current.getBoundingClientRect();
-      const v = (rect.top - window.innerHeight) * -0.15;
-      setY(v);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
   return (
-    <section ref={ref} className="relative h-[80vh] md:h-[90vh] overflow-hidden">
-      <div className="absolute inset-0 -top-24 -bottom-24" style={{ transform: `translate3d(0, ${y}px, 0)` }}>
-        <img src={road} alt="Mountain road" className="w-full h-full object-cover" loading="lazy" />
-      </div>
-      <div className="absolute inset-0 overlay-vignette" />
-      <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
-        <div className="max-w-3xl text-cream">
-          <div className="eyebrow text-gold mb-5">A Visual Journey</div>
-          <h2 className="font-display text-5xl md:text-7xl leading-[1.05] text-balance">
-            Roads written by the land,<br />
-            <span className="italic">followed by you.</span>
-          </h2>
-          <div className="gold-line mx-auto my-8" />
-          <p className="text-cream/85 text-lg max-w-xl mx-auto font-light">
-            Every route is a frame. Every turn, a quiet invitation.
-          </p>
+    <section className="relative h-[45vh] md:h-[82vh] min-h-[350px] md:min-h-[620px] overflow-hidden bg-forest-deep">
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src={georgiaVideo} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-black/20" />
+
+      <div className="absolute left-1/2 bottom-0 z-10 flex h-[240px] w-[480px] max-w-[88vw] -translate-x-1/2 translate-y-[28%] flex-col items-center justify-start rounded-t-full bg-background px-8 pt-8 text-center text-gold shadow-2xl md:h-[380px] md:w-[760px] md:translate-y-[31%] md:pt-16">
+        <div className="text-[11px] font-bold tracking-wide">11-05-2026</div>
+        <h2 className="mt-1 md:mt-3 text-2xl leading-none tracking-tight md:text-4xl">
+          Best In Travel
+        </h2>
+        <div className="mx-auto mt-2 md:mt-5 h-px w-72 max-w-full bg-gold/25" />
+
+        <div className="mt-2 md:mt-5 flex w-full items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-tight">
+          <span className="shrink-0">PRESENT BY :</span>
+          <span className="min-w-0 max-w-[58vw] truncate whitespace-nowrap font-display text-xs normal-case tracking-normal md:max-w-[520px] md:text-sm">
+            {siteName}
+          </span>
         </div>
+
+        <p className="mt-4 text-[9px] font-normal leading-3 text-gold md:text-[10px] md:leading-4">
+          Premium private minibus journeys through Georgia's wine country.<br/>
+          Comfort, local expertise, and unforgettable memories awaited.
+        </p>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&family=Parisienne&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -32,8 +33,9 @@
   --color-sunset: var(--sunset);
   --color-forest: var(--forest);
   --color-cream: var(--cream);
-  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-display: "Bodoni Moda", "Playfair Display", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-cursive: "Parisienne", cursive;
 }
 
 :root {
@@ -45,7 +47,7 @@
   --forest: oklch(0.32 0.05 155);       /* deep green */
   --forest-deep: oklch(0.22 0.04 155);
   --sunset: oklch(0.68 0.18 55);        /* sunset orange */
-  --gold: oklch(0.78 0.13 85);          /* warm gold */
+  --gold: #9f2537;          /* deep red */
   --ink: oklch(0.18 0.02 80);
 
   --background: var(--cream);
@@ -88,12 +90,29 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a,
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    cursor: pointer;
+  }
+  button:disabled,
+  input:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
   }
   h1, h2, h3, h4, .font-display {
     font-family: var(--font-display);
@@ -114,13 +133,20 @@
     font-weight: 500;
   }
 
+  .font-cursive {
+    font-family: var(--font-cursive);
+    font-size: 3.2rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
   .gold-line {
     width: 56px; height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
 
   .overlay-dark {
-    background: linear-gradient(180deg, rgba(20,18,12,.15) 0%, rgba(20,18,12,.55) 60%, rgba(20,18,12,.85) 100%);
+    background: linear-gradient(180deg, rgba(20,18,12,.2) 0%, rgba(20,18,12,.35) 60%, rgba(20,18,12,.55) 100%);
   }
   .overlay-vignette {
     background: radial-gradient(ellipse at center, transparent 30%, rgba(20,18,12,.55) 100%);
@@ -162,4 +188,273 @@
     30% { opacity: 1; }
     100% { transform: translate(-50%, 18px); opacity: 0; }
   }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+
+  .marquee-group {
+    display: flex;
+    flex-shrink: 0;
+    gap: 1rem;
+    padding-right: 1rem;
+  }
+
+  .animate-marquee {
+    animation: marquee 110s linear infinite;
+  }
+
+  .animate-marquee-reverse {
+    animation: marquee-reverse 110s linear infinite;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .nav-link {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .btn-discover {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-discover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--gold);
+    transition: width 0.5s ease;
+    z-index: 0;
+  }
+  .btn-discover:hover::before {
+    width: 100%;
+  }
+  .btn-discover span {
+    position: relative;
+    z-index: 10;
+  }
+  .btn-discover:hover {
+    color: white;
+  }
+
+  @media (min-width: 768px) {
+    .vehicle-reserve-button,
+    .intro-discover-button {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      transition: color 0.35s ease;
+    }
+
+    .vehicle-reserve-button::before,
+    .intro-discover-button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 0;
+      background: var(--gold);
+      transition: width 0.5s ease;
+      z-index: 0;
+    }
+
+    .vehicle-reserve-button:hover,
+    .intro-discover-button:hover {
+      color: white;
+    }
+
+    .vehicle-reserve-button:hover::before,
+    .intro-discover-button:hover::before {
+      width: 100%;
+    }
+
+    .vehicle-reserve-button span,
+    .intro-discover-button span,
+    .vehicle-reserve-button .button-icon,
+    .intro-discover-button .button-icon {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .box-fill-button {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    transition: color 0.35s ease, border-color 0.35s ease;
+  }
+
+  .box-fill-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 0;
+    background: var(--gold);
+    transition: width 0.5s ease;
+    z-index: 0;
+  }
+
+  .box-fill-button:hover {
+    color: white;
+    border-color: var(--gold);
+  }
+
+  .box-fill-button:hover::before {
+    width: 100%;
+  }
+
+  .box-fill-button span,
+  .box-fill-button .button-icon {
+    position: relative;
+    z-index: 1;
+  }
+
+  .button-icon {
+    display: inline-flex;
+    flex: 0 0 auto;
+    transform: rotate(-45deg);
+    transition: transform 0.35s ease;
+  }
+
+  .box-fill-button:hover .button-icon,
+  .vehicle-reserve-button:hover .button-icon,
+  .intro-discover-button:hover .button-icon {
+    transform: translate(4px, -4px) rotate(-45deg) scale(1.1);
+  }
+
+  .group:hover .button-icon {
+    transform: translate(4px, -4px) rotate(-45deg) scale(1.08);
+  }
+
+  .scroll-top-button {
+    position: fixed;
+  }
+
+  .box-fill-button.is-filled {
+    background: var(--gold);
+    color: white;
+  }
+
+  .box-fill-button.is-filled::before {
+    background: rgba(255, 255, 255, 0.16);
+  }
+
+  .box-fill-button.is-fill-out {
+    border-color: var(--gold);
+    background: transparent;
+    color: white;
+  }
+
+  .box-fill-button.is-fill-out::before {
+    width: 100%;
+    background: var(--gold);
+  }
+
+  .box-fill-button.is-fill-out:hover {
+    border-color: white;
+    color: white;
+  }
+
+  .box-fill-button.is-fill-out:hover::before {
+    width: 0;
+  }
+
+  .box-fill-button.is-fill-out-red {
+    border-color: var(--gold);
+    background: transparent;
+    color: white;
+  }
+
+  .box-fill-button.is-fill-out-red::before {
+    width: 100%;
+    background: var(--gold);
+  }
+
+  .box-fill-button.is-fill-out-red:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .box-fill-button.is-fill-out-red:hover::before {
+    width: 0;
+  }
+
+  .box-fill-button.is-light {
+    border-color: rgba(255, 246, 230, 0.45);
+    color: var(--cream);
+  }
+
+  .box-fill-button.is-light:hover {
+    border-color: var(--gold);
+    color: white;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes slideHorizontal {
+    0% { transform: translateX(-20px); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(-20px); }
+  }
+
+  @keyframes slideHorizontalReverse {
+    0% { transform: translateX(20px); }
+    50% { transform: translateX(-20px); }
+    100% { transform: translateX(20px); }
+  }
+
+  .animate-slide-horizontal {
+    animation: slideHorizontal 12s ease-in-out infinite;
+  }
+
+  .animate-slide-horizontal-reverse {
+    animation: slideHorizontalReverse 12s ease-in-out infinite;
+  }
+
 }

@@ -1,63 +1,65 @@
 import { useReveal } from "@/hooks/use-reveal";
-import side from "@/assets/van-side.jpg";
-import interior from "@/assets/van-interior.jpg";
-import group from "@/assets/van-group.jpg";
+import img1 from "@/assets/WhatsApp Image 2026-05-02 at 10.35.31 PM (1).jpeg";
+import img2 from "@/assets/WhatsApp Image 2026-05-02 at 10.35.32 PM (2).jpeg";
+import img3 from "@/assets/WhatsApp Image 2026-05-02 at 10.35.32 PM (7).jpeg";
+import img4 from "@/assets/WhatsApp Image 2026-05-02 at 10.35.32 PM.jpeg";
+import img5 from "@/assets/WhatsApp Image 2026-05-02 at 10.35.33 PM (2).jpeg";
+import img6 from "@/assets/WhatsApp Image 2026-05-02 at 10.35.33 PM.jpeg";
+import shape5 from "@/assets/shape-5.webp";
+import { ArrowRight } from "lucide-react";
+
+const vehicles = [
+  { id: "01", title: "Premium Minibus", desc: "Leather seats, AC, panoramic windows", img: img1 },
+  { id: "02", title: "Luxury Interior", desc: "Premium comfort for extended journeys", img: img2 },
+  { id: "03", title: "Group Travel", desc: "Perfect for families and groups", img: img3 },
+  { id: "04", title: "Modern Amenities", desc: "Equipped with latest technology", img: img4 },
+  { id: "05", title: "Spacious Design", desc: "Room to stretch and relax", img: img5 },
+  { id: "06", title: "Professional Care", desc: "Meticulously maintained fleet", img: img6 },
+];
 
 export function Vehicles() {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section ref={ref} id="vehicles" className="relative py-28 md:py-40 bg-secondary">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid md:grid-cols-12 gap-10 items-end mb-16">
-          <div className="md:col-span-7">
-            <div className="reveal-up eyebrow text-sunset mb-4">The Fleet</div>
-            <h2 className="reveal-up font-display text-5xl md:text-6xl leading-[1.05] text-balance">
-              Comfortable Rides<br/><span className="italic text-forest">For Every Trip</span>
-            </h2>
-          </div>
-          <p className="md:col-span-5 reveal-up text-foreground/75 text-lg leading-relaxed">
-            Premium minibuses with leather seats, panoramic windows, and the quiet that lets the
-            landscape speak. From private couples to extended family groups.
+    <section ref={ref} id="vehicles" className="relative py-16 md:py-40 bg-gradient-to-b from-secondary to-background overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl animate-pulse -translate-y-1/2" style={{animationDuration: "7s"}} />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-sunset/10 rounded-full blur-3xl animate-pulse translate-y-1/2" style={{animationDuration: "9s"}} />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="mb-20 text-center relative">
+          <img src={shape5} alt="shape" className="hidden md:block md:absolute md:-left-20 md:top-0 md:w-56 md:opacity-80 animate-spin" style={{animationDuration: "20s"}} />
+          <div className="reveal-up eyebrow text-sunset mb-4">The Fleet</div>
+          <h2 className="reveal-up font-display text-3xl md:text-5xl leading-tight text-balance mb-8">
+            Comfortable Rides<br/><span className="italic text-forest">For Every Trip</span>
+          </h2>
+          <p className="reveal-up text-foreground/75 text-lg leading-relaxed max-w-2xl mx-auto">
+            Premium minibuses with leather seats, panoramic windows, and the comfort that lets you enjoy every moment. From private couples to extended family groups — our fleet is designed for your journey.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-12 grid-rows-[auto] gap-5 md:gap-6">
-          <div className="md:col-span-8 relative reveal-up hover-zoom">
-            <div className="aspect-[16/11] overflow-hidden">
-              <img src={side} alt="Minibus exterior" className="w-full h-full object-cover" loading="lazy" />
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          {vehicles.map((vehicle, idx) => (
+            <div key={idx} className="group relative reveal-up">
+              <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[4/5] hover-zoom">
+                <img src={vehicle.img} alt={vehicle.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <div className="eyebrow text-gold mb-2">{vehicle.id}</div>
+                  <h3 className="font-display text-2xl font-medium mb-1">{vehicle.title}</h3>
+                  <p className="text-sm text-white/80">{vehicle.desc}</p>
+                </div>
+              </div>
             </div>
-            <div className="absolute left-6 bottom-6 bg-background/90 backdrop-blur px-5 py-3">
-              <div className="eyebrow text-gold text-[10px]">01</div>
-              <div className="font-display text-xl">Comfortable Vans</div>
-            </div>
-          </div>
-          <div className="md:col-span-4 relative reveal-up hover-zoom md:-mt-16">
-            <div className="aspect-[4/5] overflow-hidden">
-              <img src={interior} alt="Minibus interior" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div className="absolute left-5 bottom-5 bg-background/90 backdrop-blur px-4 py-2">
-              <div className="eyebrow text-gold text-[10px]">02</div>
-              <div className="font-display text-lg">Private Transfers</div>
-            </div>
-          </div>
-          <div className="md:col-span-5 md:col-start-4 relative reveal-up hover-zoom">
-            <div className="aspect-[4/5] overflow-hidden">
-              <img src={group} alt="Group travel" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div className="absolute left-5 bottom-5 bg-background/90 backdrop-blur px-4 py-2">
-              <div className="eyebrow text-gold text-[10px]">03</div>
-              <div className="font-display text-lg">Group Travel</div>
-            </div>
-          </div>
-          <div className="md:col-span-4 md:col-start-9 self-center reveal-up">
-            <p className="text-foreground/75 leading-relaxed">
-              Every vehicle is air-conditioned, immaculately kept, and driven by an English-speaking
-              local who knows the region by heart.
-            </p>
-            <a href="#book" className="mt-6 inline-flex items-center gap-3 text-sm uppercase tracking-[0.28em] text-foreground border-b border-gold pb-2 hover:text-sunset transition-colors">
-              Reserve a Vehicle →
-            </a>
-          </div>
+          ))}
+        </div>
+
+        <div className="mt-20 text-center reveal-up">
+          <a href="#book" className="vehicle-reserve-button inline-flex items-center gap-3 bg-gold px-8 py-4 text-sm uppercase tracking-[0.28em] text-white">
+            <span>Reserve Your Vehicle</span>
+            <ArrowRight className="button-icon" size={16} strokeWidth={1.8} />
+          </a>
         </div>
       </div>
     </section>

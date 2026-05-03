@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import h1 from "@/assets/hero-1.jpg";
-import h2 from "@/assets/hero-2.jpg";
-import h3 from "@/assets/hero-3.jpg";
-import h4 from "@/assets/hero-4.jpg";
+import { ArrowRight } from "lucide-react";
+import georgia1 from "@/assets/georgia-1.jpg";
+import georgia2 from "@/assets/georgia-2.jpg";
+import georgia3 from "@/assets/georgia-3.jpg";
+import georgia4 from "@/assets/georgia-4.jpg";
 
 const slides = [
-  { img: h1, eyebrow: "Private Transfers", title: "Drive Through The Heart of Kakheti", sub: "Cinematic vineyard roads, golden hour skies, and a vehicle made for the journey." },
-  { img: h2, eyebrow: "Wine Country", title: "Where Every Hill Tells a Story", sub: "Endless vineyards rolling into the Caucasus — yours to discover, at your own pace." },
-  { img: h3, eyebrow: "Old Town", title: "Telavi at Twilight", sub: "Ancient stones, lamplit lanes, and the slow elegance of Georgian evenings." },
-  { img: h4, eyebrow: "Mountain Routes", title: "Beyond The Familiar Road", sub: "Snow peaks, hidden valleys, and the quiet thrill of going further." },
+  { img: georgia1, eyebrow: "Timeless Beauty", titleRegular: "Experience The Soul of", titleCursive: "Georgia", sub: "Discover ancient traditions, breathtaking landscapes, and warm hospitality in the heart of the Caucasus." },
+  { img: georgia2, eyebrow: "Mountain Majesty", titleRegular: "Where Earth Meets", titleCursive: "Sky", sub: "Majestic peaks, hidden valleys, and panoramic vistas that take your breath away at every turn." },
+  { img: georgia3, eyebrow: "Cultural Heritage", titleRegular: "Centuries of Stories", titleCursive: "Waiting", sub: "Medieval monasteries, ancient fortresses, and traditions that have endured through thousands of years." },
+  { img: georgia4, eyebrow: "Natural Wonders", titleRegular: "Journey Into", titleCursive: "Paradise", sub: "Pristine valleys, cascading waterfalls, and untouched landscapes that inspire the soul." },
 ];
 
 export function HeroSlider() {
@@ -18,7 +19,7 @@ export function HeroSlider() {
     return () => clearInterval(t);
   }, []);
   return (
-    <section id="top" className="relative h-[100svh] w-full overflow-hidden bg-forest-deep">
+    <section id="top" className="relative h-[85vh] md:h-[90vh] w-full overflow-hidden bg-forest-deep">
       {slides.map((s, idx) => (
         <div
           key={idx}
@@ -28,8 +29,9 @@ export function HeroSlider() {
         >
           <img
             src={s.img}
-            alt={s.title}
+            alt={`${s.titleRegular} ${s.titleCursive}`}
             className={`absolute inset-0 w-full h-full object-cover ${i === idx ? "ken-burns" : ""}`}
+            style={{ filter: "brightness(1.1) contrast(1.05)" }}
             fetchPriority={idx === 0 ? "high" : "low"}
           />
           <div className="absolute inset-0 overlay-dark" />
@@ -43,17 +45,19 @@ export function HeroSlider() {
               key={idx}
               className={`transition-all duration-1000 ${i === idx ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 absolute"}`}
             >
-              <div className="eyebrow text-gold mb-5">{s.eyebrow}</div>
-              <h1 className="font-display text-[clamp(2.6rem,7vw,6.5rem)] leading-[1.02] text-balance max-w-5xl">
-                {s.title}
+              <div className="eyebrow text-gold mb-6 tracking-widest font-semibold text-xs md:text-sm">{s.eyebrow}</div>
+              <h1 className="font-display text-[clamp(2rem,5vw,4rem)] leading-[1.2] text-balance max-w-4xl font-semibold tracking-tight">
+                {s.titleRegular} <span className="font-cursive text-gold text-[1.3em] font-light drop-shadow">{s.titleCursive}</span>
               </h1>
-              <p className="mt-6 max-w-xl text-cream/80 text-lg font-light text-balance">{s.sub}</p>
-              <div className="mt-9 flex flex-wrap gap-4">
-                <a href="#book" className="bg-gold text-foreground px-7 py-4 text-xs uppercase tracking-[0.28em] hover:bg-cream transition-colors">
-                  Plan Your Trip
+              <p className="mt-7 max-w-2xl text-cream/80 text-base md:text-lg font-light text-balance leading-relaxed">{s.sub}</p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a href="#book" className="box-fill-button is-filled inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[0.28em] font-semibold">
+                  <span>Plan Your Trip</span>
+                  <ArrowRight className="button-icon" size={15} strokeWidth={1.8} />
                 </a>
-                <a href="#tours" className="border border-cream/40 text-cream px-7 py-4 text-xs uppercase tracking-[0.28em] hover:border-gold hover:text-gold transition-colors">
-                  View Tours
+                <a href="#tours" className="box-fill-button is-light inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[0.28em]">
+                  <span>Explore Georgia</span>
+                  <ArrowRight className="button-icon" size={15} strokeWidth={1.8} />
                 </a>
               </div>
             </div>
@@ -77,6 +81,7 @@ export function HeroSlider() {
           />
         ))}
       </div>
+
       {/* scroll indicator */}
       <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 hidden md:block">
         <div className="scroll-indicator relative w-[18px] h-7 border border-cream/50 rounded-full" />

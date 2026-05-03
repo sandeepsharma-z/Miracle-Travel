@@ -2,6 +2,8 @@ import { useReveal } from "@/hooks/use-reveal";
 import wine from "@/assets/wine-cellar.jpg";
 import monastery from "@/assets/monastery.jpg";
 import road from "@/assets/road-aerial.jpg";
+import shape4 from "@/assets/shape-4.webp";
+import { ArrowRight } from "lucide-react";
 
 const tours = [
   {
@@ -27,36 +29,52 @@ const tours = [
 export function Tours() {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section ref={ref} id="tours" className="bg-background py-28 md:py-40">
-      <div className="mx-auto max-w-7xl px-6 mb-20 text-center">
-        <div className="reveal-up eyebrow text-sunset mb-4">Tour Experiences</div>
-        <h2 className="reveal-up font-display text-5xl md:text-6xl leading-[1.05]">
-          Crafted Journeys, <span className="italic text-forest">Personally Yours</span>
-        </h2>
+    <section ref={ref} id="tours" className="relative w-full max-w-full overflow-hidden overflow-x-clip bg-gradient-to-b from-background via-background to-secondary/10 py-16 md:py-40">
+      {/* Animated Background Shapes */}
+      <div className="absolute inset-y-0 left-0 right-0 pointer-events-none overflow-hidden overflow-x-clip">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sunset/20 rounded-full blur-3xl animate-pulse -translate-y-1/2 translate-x-1/4" style={{animationDuration: "6s"}} />
+        <div className="absolute top-1/2 left-0 w-80 h-80 bg-gold/15 rounded-full blur-3xl animate-pulse -translate-x-1/2" style={{animationDuration: "8s"}} />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-forest/15 rounded-full blur-3xl animate-pulse translate-y-1/2" style={{animationDuration: "10s"}} />
       </div>
 
-      <div className="space-y-28 md:space-y-40">
-        {tours.map((t, i) => {
-          const reverse = i % 2 === 1;
-          return (
-            <div key={i} className="mx-auto max-w-7xl px-6 grid md:grid-cols-12 gap-8 md:gap-14 items-center">
-              <div className={`md:col-span-7 reveal-up hover-zoom ${reverse ? "md:order-2" : ""}`}>
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img src={t.img} alt={t.title} className="w-full h-full object-cover" loading="lazy" />
+      <div className="relative z-10">
+        <div className="mx-auto max-w-7xl px-6 mb-20 text-center relative">
+          <img src={shape4} alt="shape" className="hidden md:block md:absolute md:-left-8 md:-top-12 md:w-80 md:opacity-100 animate-slide-horizontal" />
+          <div className="reveal-up eyebrow text-sunset mb-4">Tour Experiences</div>
+          <h2 className="reveal-up font-display text-3xl md:text-5xl leading-[1.05] text-balance">
+            Crafted Journeys,<br/>
+            <span className="italic text-forest">Personally Yours</span>
+          </h2>
+        </div>
+
+        <div className="space-y-28 md:space-y-40">
+          {tours.map((t, i) => {
+            const reverse = i % 2 === 1;
+            return (
+              <div key={i} className="mx-auto max-w-7xl px-6">
+                <div className="grid md:grid-cols-12 gap-8 md:gap-14 items-center">
+                  <div className={`md:col-span-6 reveal-up hover-zoom ${reverse ? "md:order-2" : ""}`}>
+                    <div className="aspect-[16/10] overflow-hidden rounded-2xl shadow-2xl relative group">
+                      <img src={t.img} alt={t.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  </div>
+                  <div className={`md:col-span-6 ${reverse ? "md:order-1 md:pr-12" : "md:pl-12"} relative`}>
+                    {i === 2 && <img src={shape4} alt="shape" className="absolute -right-32 -top-20 w-64 md:w-80 opacity-100 animate-slide-horizontal-reverse" />}
+                    <div className="reveal-up eyebrow text-gold mb-6 tracking-widest">0{i + 1} — {t.eyebrow}</div>
+                    <h3 className="reveal-up font-display text-2xl md:text-4xl leading-tight text-balance mb-6">{t.title}</h3>
+                    <div className="gold-line my-8 reveal-up" />
+                    <p className="reveal-up text-foreground/75 text-lg leading-relaxed mb-10">{t.desc}</p>
+                    <a href="#book" className="box-fill-button is-fill-out-red reveal-up inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[0.28em] font-semibold">
+                      <span>Explore Tour</span>
+                      <ArrowRight className="button-icon" size={15} strokeWidth={1.8} />
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div className={`md:col-span-5 ${reverse ? "md:order-1 md:pr-8" : "md:pl-8"}`}>
-                <div className="reveal-up eyebrow text-gold mb-4">0{i + 1} — {t.eyebrow}</div>
-                <h3 className="reveal-up font-display text-4xl md:text-5xl leading-tight text-balance">{t.title}</h3>
-                <div className="gold-line my-6 reveal-up" />
-                <p className="reveal-up text-foreground/75 text-lg leading-relaxed">{t.desc}</p>
-                <a href="#book" className="reveal-up mt-8 inline-flex items-center gap-3 text-sm uppercase tracking-[0.28em] text-foreground border-b border-gold pb-2 hover:text-sunset transition-colors">
-                  Explore Tour →
-                </a>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );
