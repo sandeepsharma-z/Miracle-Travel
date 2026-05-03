@@ -1,8 +1,11 @@
 import georgiaVideo from "@/assets/georgia-intro.mp4";
 import georgiaPoster from "@/assets/georgia-1.jpg";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 export function VideoSection() {
+  const [videoReady, setVideoReady] = useState(false);
+
   return (
     <section className="relative w-full h-[45vh] md:h-[85vh] lg:h-[95vh] overflow-hidden bg-forest-deep">
       <video
@@ -13,9 +16,16 @@ export function VideoSection() {
         playsInline
         preload="auto"
         poster={georgiaPoster}
+        onCanPlay={() => setVideoReady(true)}
+        onPlaying={() => setVideoReady(true)}
       >
         <source src={georgiaVideo} type="video/mp4" />
       </video>
+      {!videoReady && (
+        <div className="absolute inset-0 z-[2] flex items-center justify-center">
+          <div className="h-12 w-12 rounded-full border-2 border-cream/30 border-t-cream animate-spin" />
+        </div>
+      )}
       <div className="absolute inset-0 overlay-dark" />
 
       <div className="relative z-10 h-full flex items-end justify-center pb-12 md:pb-16">
