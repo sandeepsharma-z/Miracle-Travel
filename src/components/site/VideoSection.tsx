@@ -1,4 +1,5 @@
 import georgiaVideo from "@/assets/georgia-intro.mp4";
+import georgiaPoster from "@/assets/georgia-1.jpg";
 import { ArrowRight } from "lucide-react";
 
 export function VideoSection() {
@@ -10,6 +11,8 @@ export function VideoSection() {
         muted
         loop
         playsInline
+        preload="auto"
+        poster={georgiaPoster}
       >
         <source src={georgiaVideo} type="video/mp4" />
       </video>
