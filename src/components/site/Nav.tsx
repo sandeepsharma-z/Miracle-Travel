@@ -160,10 +160,10 @@ export function Nav() {
                   <div>
                     <div className="eyebrow text-white/80">Miracle Travel</div>
                     <h2 className="mt-5 font-display text-5xl leading-tight">
-                      Book Your Perfect Journey
+                      Begin Your Miracle Journey
                     </h2>
                     <p className="mt-5 text-sm leading-7 text-white/80">
-                      Experience Georgia with premium tours and car rental services. Tell us your travel dates and preferences, and we'll create an unforgettable adventure for you.
+                      Premium travel experiences across Georgia. Wine tours, mountain adventures, city exploration. Comfortable vehicles. Expert guides. Unforgettable moments.
                     </p>
                   </div>
                   <div className="space-y-4 text-sm text-white/85">
@@ -175,10 +175,10 @@ export function Nav() {
 
               <form onSubmit={submitBooking} className="max-h-[88vh] overflow-y-auto p-6 md:max-h-none md:overflow-visible md:p-7">
                 <div className="pr-10 md:pr-0">
-                  <div className="eyebrow text-gold">Miracle Travel Booking</div>
-                  <h3 className="mt-3 font-display text-3xl leading-tight text-foreground">Plan Your Georgia Adventure</h3>
+                  <div className="eyebrow text-gold">Start Your Miracle</div>
+                  <h3 className="mt-3 font-display text-3xl leading-tight text-foreground">Describe Your Perfect Escape</h3>
                   <p className="mt-3 text-sm leading-6 text-foreground/65">
-                    Fill in your travel details below. Submit and we'll contact you on WhatsApp with personalized tour and rental options.
+                    Tell us where you want to go and when. We'll design a custom tour and get back to you on WhatsApp with all the details you need.
                   </p>
                 </div>
 
