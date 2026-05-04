@@ -1,5 +1,6 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { ArrowRight, CalendarDays, MapPin, Phone, Send, Users, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const links = [
   { label: "Tours", href: "#tours" },
@@ -9,7 +10,7 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
-const siteName = "მიკროავტობუსი დაკვეთით";
+const siteName = "Miracle Travel";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -82,8 +83,8 @@ export function Nav() {
         }`}
       >
         <div className="mx-auto max-w-7xl px-6 flex items-center justify-between">
-          <a href="#top" className={`font-display text-lg md:text-xl tracking-tight ${scrolled ? "text-foreground" : "text-cream"}`}>
-            <span className="text-gold">●</span> {siteName}
+          <a href="#top" className="flex items-center gap-2 h-10">
+            <img src={logo} alt={siteName} className="h-full object-contain" />
           </a>
 
           <nav className="hidden md:flex items-center gap-9">
