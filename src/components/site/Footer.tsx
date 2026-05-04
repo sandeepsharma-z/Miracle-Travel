@@ -46,7 +46,7 @@ export function Footer() {
           <div className="md:col-span-3">
             <div className="eyebrow text-sunset mb-4">Contact</div>
             <ul className="space-y-2 text-sm text-cream">
-              <li>+995 574 14 43 11</li>
+              <li>+995 551 30 06 20</li>
               <li>Miracletoursltd@gmail.com</li>
               <li>Tbilisi, Metekhi 22, Georgia</li>
             </ul>

@@ -68,7 +68,7 @@ export function Nav() {
       `Additional Notes: ${data.get("message") || "None"}`,
     ].join("\n");
 
-    window.open(`https://wa.me/995574144311?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/995551300620?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setBookingOpen(false);
   };
 
@@ -168,7 +168,7 @@ export function Nav() {
                     </p>
                   </div>
                   <div className="space-y-4 text-sm text-white/85">
-                    <div className="flex items-center gap-3"><Phone size={18} /> +995 574 14 43 11</div>
+                    <div className="flex items-center gap-3"><Phone size={18} /> +995 551 30 06 20</div>
                     <div className="flex items-center gap-3"><MapPin size={18} /> Tbilisi, Georgia</div>
                   </div>
                 </div>
