@@ -1,5 +1,3 @@
-import logo from "@/assets/logo.png";
-
 export function Footer() {
   const socialLinks = [
     {
@@ -38,7 +36,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
-            <img src={logo} alt="Miracle Travel" className="h-12 object-contain mb-4" />
+            <div className="font-display text-2xl text-cream mb-4"><span className="text-sunset">●</span> Miracle Travel</div>
             <p className="mt-3 text-cream max-w-sm leading-relaxed">
               Premium travel tours and car rental services. Explore Georgia with comfort, expertise, and unforgettable experiences.
             </p>
