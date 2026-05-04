@@ -57,17 +57,18 @@ export function Nav() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const message = [
-      "New tour booking request",
+      "🚗 Miracle Travel - Booking Request",
+      "",
       `Name: ${data.get("name")}`,
       `Phone: ${data.get("phone")}`,
-      `Pickup: ${data.get("pickup")}`,
+      `Pickup Location: ${data.get("pickup")}`,
       `Destination: ${data.get("destination")}`,
-      `Date: ${data.get("date")}`,
-      `Guests: ${data.get("guests")}`,
-      `Message: ${data.get("message") || "N/A"}`,
+      `Travel Date: ${data.get("date")}`,
+      `Number of Guests: ${data.get("guests")}`,
+      `Additional Notes: ${data.get("message") || "None"}`,
     ].join("\n");
 
-    window.open(`https://wa.me/995577412717?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/995574144311?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setBookingOpen(false);
   };
 
@@ -158,27 +159,27 @@ export function Nav() {
                 <div className="absolute -bottom-20 right-0 h-56 w-56 rounded-full bg-white/10" />
                 <div className="relative flex h-full min-h-[500px] flex-col justify-between">
                   <div>
-                    <div className="eyebrow text-white/80">Georgia Travel</div>
+                    <div className="eyebrow text-white/80">Miracle Travel</div>
                     <h2 className="mt-5 font-display text-5xl leading-tight">
-                      Plan Your Dream Journey
+                      Book Your Perfect Journey
                     </h2>
                     <p className="mt-5 text-sm leading-7 text-white/80">
-                      Tell us where you want to go, when you want to travel, and what kind of experience you love. We will help shape a smooth Georgia travel plan for you.
+                      Experience Georgia with premium tours and car rental services. Tell us your travel dates and preferences, and we'll create an unforgettable adventure for you.
                     </p>
                   </div>
                   <div className="space-y-4 text-sm text-white/85">
-                    <div className="flex items-center gap-3"><Phone size={18} /> +995 577 41 27 17</div>
-                    <div className="flex items-center gap-3"><MapPin size={18} /> Kakheti, Georgia</div>
+                    <div className="flex items-center gap-3"><Phone size={18} /> +995 574 14 43 11</div>
+                    <div className="flex items-center gap-3"><MapPin size={18} /> Tbilisi, Georgia</div>
                   </div>
                 </div>
               </div>
 
               <form onSubmit={submitBooking} className="max-h-[88vh] overflow-y-auto p-6 md:max-h-none md:overflow-visible md:p-7">
                 <div className="pr-10 md:pr-0">
-                  <div className="eyebrow text-gold">Booking Request</div>
-                  <h3 className="mt-3 font-display text-3xl leading-tight text-foreground">Request Your Travel Plan</h3>
+                  <div className="eyebrow text-gold">Miracle Travel Booking</div>
+                  <h3 className="mt-3 font-display text-3xl leading-tight text-foreground">Plan Your Georgia Adventure</h3>
                   <p className="mt-3 text-sm leading-6 text-foreground/65">
-                    Share your trip details and submit. WhatsApp will open with your travel request ready to send.
+                    Fill in your travel details below. Submit and we'll contact you on WhatsApp with personalized tour and rental options.
                   </p>
                 </div>
 
@@ -193,11 +194,11 @@ export function Nav() {
                   </label>
                   <label className="block text-sm font-medium text-foreground/80">
                     Pickup Location
-                    <input name="pickup" required className="mt-2 w-full border border-border bg-white/70 px-4 py-2.5 text-sm outline-none transition-colors focus:border-gold" placeholder="Tbilisi hotel, airport..." />
+                    <input name="pickup" required className="mt-2 w-full border border-border bg-white/70 px-4 py-2.5 text-sm outline-none transition-colors focus:border-gold" placeholder="Your hotel, airport, or location in Tbilisi..." />
                   </label>
                   <label className="block text-sm font-medium text-foreground/80">
                     Destination
-                    <input name="destination" required className="mt-2 w-full border border-border bg-white/70 px-4 py-2.5 text-sm outline-none transition-colors focus:border-gold" placeholder="Kakheti, Kazbegi..." />
+                    <input name="destination" required className="mt-2 w-full border border-border bg-white/70 px-4 py-2.5 text-sm outline-none transition-colors focus:border-gold" placeholder="Tbilisi, Batumi, Gori, Kutaisi, Zugdidi..." />
                   </label>
                   <label className="block text-sm font-medium text-foreground/80">
                     <span className="inline-flex items-center gap-2"><CalendarDays size={15} /> Travel Date</span>
@@ -208,8 +209,8 @@ export function Nav() {
                     <input name="guests" required type="number" min="1" className="mt-2 w-full border border-border bg-white/70 px-4 py-2.5 text-sm outline-none transition-colors focus:border-gold" placeholder="6" />
                   </label>
                   <label className="block text-sm font-medium text-foreground/80 sm:col-span-2">
-                    Message
-                    <textarea name="message" rows={3} className="mt-2 w-full resize-none border border-border bg-white/70 px-4 py-2.5 text-sm outline-none transition-colors focus:border-gold" placeholder="Any timing, route, luggage, or special request..." />
+                    Special Requests
+                    <textarea name="message" rows={3} className="mt-2 w-full resize-none border border-border bg-white/70 px-4 py-2.5 text-sm outline-none transition-colors focus:border-gold" placeholder="Any special requests? (tours, car rental, luggage info, dietary preferences, etc.)" />
                   </label>
                 </div>
 
