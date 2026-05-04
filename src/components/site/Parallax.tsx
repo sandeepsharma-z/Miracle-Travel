@@ -1,6 +1,6 @@
 import georgiaVideo from "@/assets/parallax-video.mp4";
 
-const siteName = "მიკროავტობუსი დაკვეთით";
+const siteName = "Miracle Travel";
 
 export function Parallax() {
   return (
@@ -31,8 +31,8 @@ export function Parallax() {
         </div>
 
         <p className="mt-4 text-[9px] font-normal leading-3 text-gold md:text-[10px] md:leading-4">
-          Premium private minibus journeys through Georgia's wine country.<br/>
-          Comfort, local expertise, and unforgettable memories awaited.
+          Premium travel tours and car rental services in Georgia.<br/>
+          Experience comfort, local expertise, and unforgettable journeys.
         </p>
       </div>
     </section>

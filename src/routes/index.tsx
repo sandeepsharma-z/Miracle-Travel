@@ -19,10 +19,10 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "მიკროავტობუსი დაკვეთით — Private Minibus Tours in Kakheti" },
-      { name: "description", content: "Premium private minibus tours through Kakheti — vineyards, mountains, monasteries. Comfortable vehicles, local drivers, crafted journeys." },
-      { property: "og:title", content: "მიკროავტობუსი დაკვეთით — Private Tours in Kakheti" },
-      { property: "og:description", content: "Cinematic private minibus journeys through the wine country of Georgia." },
+      { title: "Miracle Travel — Premium Tours & Car Rental in Georgia" },
+      { name: "description", content: "Miracle Travel offers premium tour packages and car rental services throughout Georgia. Experience comfort, local expertise, and unforgettable journeys." },
+      { property: "og:title", content: "Miracle Travel — Tours & Car Rental in Georgia" },
+      { property: "og:description", content: "Explore Georgia with Miracle Travel - your premier choice for travel tours and car rental services." },
     ],
   }),
 });

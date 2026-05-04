@@ -36,17 +36,17 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
-            <div className="font-display text-2xl text-cream"><span className="text-sunset">●</span> მიკროავტობუსი დაკვეთით</div>
+            <div className="font-display text-2xl text-cream"><span className="text-sunset">●</span> Miracle Travel</div>
             <p className="mt-5 text-cream max-w-sm leading-relaxed">
-              Private minibus tours through Kakheti. Crafted journeys, comfortable rides, local depth.
+              Premium travel tours and car rental services. Explore Georgia with comfort, expertise, and unforgettable experiences.
             </p>
           </div>
           <div className="md:col-span-3">
             <div className="eyebrow text-sunset mb-4">Contact</div>
             <ul className="space-y-2 text-sm text-cream">
-              <li>+995 577 41 27 17</li>
-              <li>info@microbus.ge</li>
-              <li>Telavi, Kakheti, Georgia</li>
+              <li>+995 574 14 43 11</li>
+              <li>Miracletoursltd@gmail.com</li>
+              <li>Tbilisi, Metekhi 22, Georgia</li>
             </ul>
           </div>
           <div className="md:col-span-2">
@@ -78,7 +78,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-16 pt-8 border-t border-cream/30 flex flex-col md:flex-row gap-4 justify-between text-xs text-cream/70">
-          <div>© {new Date().getFullYear()} მიკროავტობუსი დაკვეთით — All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Miracle Travel — All rights reserved.</div>
           <div>
             Design & Developed by{" "}
             <a href="https://solvinex.com" target="_blank" rel="noopener" className="text-sunset hover:underline">
