@@ -10,6 +10,7 @@ import { Tours } from "@/components/site/Tours";
 import { Vehicles } from "@/components/site/Vehicles";
 import { Timeline } from "@/components/site/Timeline";
 import { Destinations } from "@/components/site/Destinations";
+import { VideosGrid } from "@/components/site/VideosGrid";
 import { Trust } from "@/components/site/Trust";
 import { BookingCTA } from "@/components/site/BookingCTA";
 import { Footer } from "@/components/site/Footer";
@@ -39,6 +40,7 @@ function Index() {
       <Vehicles />
       <Timeline />
       <Destinations />
+      <VideosGrid />
       <Trust />
       <BookingCTA />
       <Footer />
