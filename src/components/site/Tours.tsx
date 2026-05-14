@@ -11,18 +11,24 @@ const tours = [
     eyebrow: "Wine Trails",
     title: "Cellars of the Qvevri",
     desc: "Descend into candle-lit cellars where wine still ages in clay amphoras buried beneath the earth — a 8,000-year-old ritual, served in a glass.",
+    price: "₾220",
+    priceInfo: "per person/day",
   },
   {
     img: monastery,
     eyebrow: "Heritage",
     title: "Monasteries & Mountains",
     desc: "Trace the spine of the Caucasus through stone monasteries that have watched over Kakheti for a thousand years — quiet, golden, untouched.",
+    price: "₾200",
+    priceInfo: "per person/day",
   },
   {
     img: road,
     eyebrow: "Off-Route",
     title: "The Slow Backroads",
     desc: "Skip the postcards. We drive the unmarked passes — fog-soft mornings, autumn ridges, and villages where time forgets to keep score.",
+    price: "₾150",
+    priceInfo: "Telavi & back/day",
   },
 ];
 
@@ -64,7 +70,11 @@ export function Tours() {
                     <div className="reveal-up eyebrow text-gold mb-6 tracking-widest">0{i + 1} — {t.eyebrow}</div>
                     <h3 className="reveal-up font-display text-2xl md:text-4xl leading-tight text-balance mb-6">{t.title}</h3>
                     <div className="gold-line my-8 reveal-up" />
-                    <p className="reveal-up text-foreground/75 text-lg leading-relaxed mb-10">{t.desc}</p>
+                    <p className="reveal-up text-foreground/75 text-lg leading-relaxed mb-6">{t.desc}</p>
+                    <div className="reveal-up mb-10 p-4 bg-gold/10 rounded-lg border-l-4 border-gold">
+                      <div className="text-2xl font-display text-gold font-semibold">{t.price}</div>
+                      <div className="text-sm text-foreground/70 mt-1">{t.priceInfo}</div>
+                    </div>
                     <a href="#book" className="box-fill-button is-fill-out-red reveal-up inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[0.28em] font-semibold">
                       <span>Explore Tour</span>
                       <ArrowRight className="button-icon" size={15} strokeWidth={1.8} />
