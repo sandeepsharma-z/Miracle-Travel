@@ -24,9 +24,9 @@ const tours = [
   },
   {
     img: road,
-    eyebrow: "Off-Route",
-    title: "The Slow Backroads",
-    desc: "Skip the postcards. We drive the unmarked passes — fog-soft mornings, autumn ridges, and villages where time forgets to keep score.",
+    eyebrow: "City Tours",
+    title: "Telavi & Back",
+    desc: "Explore the charming city of Telavi, capital of Kakheti. Visit historic sites, local markets, and experience authentic Georgian hospitality. A perfect day trip from anywhere in the region.",
     price: "₾150",
     priceInfo: "Telavi & back/day",
   },
